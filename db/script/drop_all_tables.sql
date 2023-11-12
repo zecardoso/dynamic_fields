@@ -1,0 +1,11 @@
+DROP TABLE tb_dynamic_field_form_field
+DROP TABLE tb_dynamic_field_form
+DROP TABLE tb_dynamic_field_condition_user
+DROP TABLE tb_dynamic_field
+DROP TABLE tb_user
+DROP TABLE tb_user_type
+DROP TABLE tb_dynamic_field_condition_type
+DROP TABLE tb_dynamic_field_element
+DROP TABLE tb_dynamic_field_value_type
+DROP TABLE tb_column
+DROP TABLE tb_table
