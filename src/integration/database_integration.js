@@ -1,4 +1,4 @@
-import { SqlServer } from "./sql_server.js"
+import { SqlServer } from "../library/sql_server.js"
 
 export class DataBaseIntegration {
     Execute(source) {
