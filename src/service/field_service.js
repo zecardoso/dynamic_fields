@@ -3,6 +3,6 @@ import { FieldRepository } from "../repository/field_repository.js"
 
 export class FieldService {
     constructor() {
-        
+        this.repository = new FieldRepository()
     }
 }

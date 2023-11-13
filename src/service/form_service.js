@@ -3,6 +3,6 @@ import { FormRepository } from "../repository/form_repository.js"
 
 export class FormService {
     constructor() {
-        
+        this.repository = new FormRepository()
     }
 }

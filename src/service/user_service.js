@@ -3,6 +3,6 @@ import { UserRepository } from "../repository/user_repository.js"
 
 export class UserService {
     constructor() {
-        
+        this.repository = new UserRepository()
     }
 }

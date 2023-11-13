@@ -3,6 +3,6 @@ import { ColumnRepository } from "../repository/column_repository.js"
 
 export class ColumnService {
     constructor() {
-        
+        this.repository = new ColumnRepository()
     }
 }

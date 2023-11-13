@@ -3,6 +3,6 @@ import { ConditionTypeRepository } from "../repository/condition_type_repository
 
 export class ConditionTypeService {
     constructor() {
-        
+        this.repository = new ConditionTypeRepository()
     }
 }

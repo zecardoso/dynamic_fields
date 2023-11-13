@@ -3,6 +3,6 @@ import { FieldValueTypeRepository } from "../repository/field_value_type_reposit
 
 export class FieldValueTypeService {
     constructor() {
-        
+        this.repository = new FieldValueTypeRepository()
     }
 }

@@ -3,6 +3,6 @@ import { FieldConditionUserRepository } from "../repository/field_condition_user
 
 export class FieldConditionUserService {
     constructor() {
-        
+        this.repository = new FieldConditionUserRepository()
     }
 }
