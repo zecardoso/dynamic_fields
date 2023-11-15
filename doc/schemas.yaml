@@ -1,0 +1,289 @@
+openapi: 3.0.0
+info:
+  title: Dynamic fields
+  description: Create a form page with dynamic fields from database
+  version: 1.0.0
+
+servers:
+- url: http://localhost:3000
+
+paths:
+  /example:
+    get:
+      responses:
+        '200':
+          description: OK
+
+components:
+  schemas:
+    Table:
+      type: object
+      description: Informação da tabela dinâmica.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id da tabela
+        CodeIdentifier:
+          type: string
+          description: Código de identificação da tabela
+        Description:
+          type: string
+          description: Descrição da tabela
+        Name:
+          type: string
+          description: Nome da tabela
+        Enabled:
+          type: boolean
+          description: Tabela habilitada
+      required:
+      - Id
+      - CodeIdentifier
+      - Name
+      - Enabled
+    Column:
+      type: object
+      description: Informação da coluna da tabela dinâmica.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id da coluna
+        CodeIdentifier:
+          type: string
+          description: Código de identificação da coluna
+        Description:
+          type: string
+          description: Descrição da coluna
+        Table:
+          $ref: '#/components/schemas/Table'
+        Name:
+          type: string
+          description: Nome da coluna
+        Enabled:
+          type: boolean
+          description: Coluna habilitada
+      required:
+      - Id
+      - CodeIdentifier
+      - Table
+      - Name
+      - Enabled
+    FieldValueType:
+      type: object
+      description: Tipo de valor para campo.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do tipo de valor
+        CodeIdentifier:
+          type: string
+          description: Código de identificação do tipo de valor
+        Description:
+          type: string
+          description: Descrição do tipo de valor
+        Enabled:
+          type: boolean
+          description: Tipo de valor habilitado
+      required:
+      - Id
+      - CodeIdentifier
+      - Enabled
+    Element:
+      type: object
+      description: Elemento que será renderizado no formulário.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do elemento
+        CodeIdentifier:
+          type: string
+          description: Código de identificação do elemento
+        Description:
+          type: string
+          description: Descrição do elemento
+        FieldValueType:
+          $ref: '#/components/schemas/FieldValueType'
+        Enabled:
+          type: boolean
+          description: Elemento habilitado
+      required:
+      - Id
+      - CodeIdentifier
+      - FieldValueType
+      - Enabled
+    ConditionType:
+      type: object
+      description: Tipo de condição antes de salvar. Tamanho min e max.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id da condição
+        CodeIdentifier:
+          type: string
+          description: Código de identificação da condição
+        Description:
+          type: string
+          description: Descrição da condição
+        Enabled:
+          type: boolean
+          description: Condição habilitada
+      required:
+      - Id
+      - CodeIdentifier
+      - Enabled
+    UserType:
+      type: object
+      description: Tipo de usuário.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do tipo de usuário
+        CodeIdentifier:
+          type: string
+          description: Código de identificação do tipo de usuário
+        Description:
+          type: string
+          description: Descrição do tipo de usuário
+        Enabled:
+          type: boolean
+          description: Tipo de usuário habilitado
+      required:
+      - Id
+      - CodeIdentifier
+      - Enabled
+    User:
+      type: object
+      description: Usuário.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do usuário
+        CodeIdentifier:
+          type: string
+          description: Código de identificação de usuário
+        UserType:
+          $ref: '#/components/schemas/UserType'
+        Name:
+          type: string
+          description: Nome do usuário
+        Enabled:
+          type: boolean
+          description: Usuário habilitado
+      required:
+      - Id
+      - CodeIdentifier
+      - UserType
+      - Name
+      - Enabled
+    Field:
+      type: object
+      description: Informações para serem apresentadas no campo do formulário.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do campo
+        Description:
+          type: string
+          description: Descrição do campo
+        Column:
+          $ref: '#/components/schemas/Column'
+        Name:
+          type: string
+          description: Nome do campo
+        Caption:
+          type: string
+          description: Legenda do campo
+        Hidden:
+          type: boolean
+          description: Campo oculto
+        Conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldConditionUser'
+        Enabled:
+          type: boolean
+          description: Campo habilitado
+      required:
+      - Id
+      - Column
+      - Name
+      - Caption
+      - Hidden
+      - Conditions
+      - Enabled
+    FieldConditionUser:
+      type: object
+      description: Lista de condições do campo para cada tipo de usuário.
+      properties:
+        UserType:
+          $ref: '#/components/schemas/UserType'
+        ConditionType:
+          $ref: '#/components/schemas/ConditionType'
+        Value:
+          type: integer
+          format: int32
+          description: Valor de condição
+        Enabled:
+          type: boolean
+          description: Condição do campo habilitada
+      required:
+      - UserType
+      - ConditionType
+      - Enabled
+    Form:
+      type: object
+      description: Informações do formulário.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id do formulário
+        Description:
+          type: string
+          description: Descrição do formulário
+        Fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormField'
+        Enabled:
+          type: boolean
+          description: Formulário habilitado
+      required:
+      - Id
+      - Fields
+      - Enabled
+    FormField:
+      type: object
+      description: Lista de campos do formulário.
+      properties:
+        Field:
+          $ref: '#/components/schemas/Field'
+        Element:
+          $ref: '#/components/schemas/Element'
+        Name:
+          type: string
+          description: Nome do campo para o formulário
+        Caption:
+          type: string
+          description: Legenda do campo para o formulário
+        Hidden:
+          type: boolean
+          description: Campo para o formulário oculto
+        RankOrder:
+          type: integer
+          format: int32
+          description: Ordem de apresentação do campo
+        Enabled:
+          type: boolean
+          description: Campo para o formulário oculto
+      required:
+      - Field
+      - Element
+      - Enabled
