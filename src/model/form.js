@@ -1,7 +1,9 @@
 export class Form {
-    constructor(Id, Description, Enabled) {
+    constructor(Id, CodeIdentifier, Description, Fields, Enabled) {
         this.Id = Id;
+        this.CodeIdentifier = CodeIdentifier;
         this.Description = Description;
+        this.Fields = Fields;
         this.Enabled = Enabled;
     }
 }

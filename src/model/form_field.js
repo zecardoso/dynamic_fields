@@ -1,7 +1,7 @@
 export class FormField {
-    constructor(FormId, FieldId, Name, Caption, Hidden, RankOrder, Enabled) {
-        this.FormId = FormId;
-        this.FieldId = FieldId;
+    constructor(Field, Element, Name, Caption, Hidden, RankOrder, Enabled) {
+        this.Field = Field;
+        this.Element = Element;
         this.Name = Name;
         this.Caption = Caption;
         this.Hidden = Hidden;

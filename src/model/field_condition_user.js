@@ -1,8 +1,7 @@
 export class FieldConditionUser {
-    constructor(FieldId, UserTypeId, ConditionTypeId, Value, Enabled) {
-        this.FieldId = FieldId;
-        this.UserTypeId = UserTypeId;
-        this.ConditionTypeId = ConditionTypeId;
+    constructor(UserType, ConditionType, Value, Enabled) {
+        this.UserType = UserType;
+        this.ConditionType = ConditionType;
         this.Value = Value;
         this.Enabled = Enabled;
     }

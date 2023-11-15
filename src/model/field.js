@@ -1,12 +1,13 @@
 export class Field {
-    constructor(Id, Description, ElementId, ColumnId, Name, Caption, Hidden, Enabled) {
+    constructor(Id, CodeIdentifier, Description, Column, Name, Caption, Hidden, Conditions, Enabled) {
         this.Id = Id;
+        this.CodeIdentifier = CodeIdentifier;
         this.Description = Description;
-        this.ElementId = ElementId;
-        this.ColumnId = ColumnId;
+        this.Column = Column;
         this.Name = Name;
         this.Caption = Caption;
         this.Hidden = Hidden;
+        this.Conditions = Conditions;
         this.Enabled = Enabled;
     }
 }
