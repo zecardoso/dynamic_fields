@@ -7,6 +7,7 @@ BEGIN
     SELECT
          form_id AS 'FormId'
         ,field_id AS 'FieldId'
+        ,element_id AS 'ElementId'
         ,name AS 'Name'
         ,caption AS 'Caption'
         ,hidden AS 'Hidden'

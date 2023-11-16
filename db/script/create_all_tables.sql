@@ -105,8 +105,8 @@ GO
 CREATE TABLE tb_dynamic_field
 (
      id int IDENTITY(1, 1)
+    ,code_identifier nvarchar(50) NOT NULL
     ,description nvarchar(100)
-    ,element_id int NOT NULL
     ,column_id int NOT NULL
     ,name nvarchar(100)
     ,caption nvarchar(100)
@@ -120,11 +120,6 @@ ADD CONSTRAINT pk_tb_dynamic_field PRIMARY KEY ( id );
 GO
 
 ALTER TABLE tb_dynamic_field
-ADD CONSTRAINT fk_tb_dynamic_field_tb_dynamic_field_element
-FOREIGN KEY ( element_id ) REFERENCES tb_dynamic_field_element( id );
-GO
-
-ALTER TABLE tb_dynamic_field
 ADD CONSTRAINT fk_tb_dynamic_field_tb_column
 FOREIGN KEY ( column_id ) REFERENCES tb_column( id );
 GO
@@ -133,7 +128,7 @@ CREATE TABLE tb_dynamic_field_condition_user
      field_id int NOT NULL
     ,user_type_id int NOT NULL
     ,condition_type_id int NOT NULL
-    ,value int NOT NULL
+    ,value int
     ,enabled bit NOT NULL
 )
 GO
@@ -155,6 +150,7 @@ GO
 CREATE TABLE tb_dynamic_field_form
 (
      id int IDENTITY(1, 1)
+    ,code_identifier nvarchar(50) NOT NULL
     ,description nvarchar(100)
     ,enabled bit NOT NULL
 )
@@ -167,6 +163,7 @@ CREATE TABLE tb_dynamic_field_form_field
 (
      form_id int NOT NULL
     ,field_id int NOT NULL
+    ,element_id int NOT NULL
     ,name nvarchar(100)
     ,caption nvarchar(100)
     ,hidden bit
@@ -183,4 +180,9 @@ GO
 ALTER TABLE tb_dynamic_field_form_field
 ADD CONSTRAINT fk_tb_dynamic_field_form_field_tb_dynamic_field
 FOREIGN KEY ( field_id ) REFERENCES tb_dynamic_field( id );
+GO
+
+ALTER TABLE tb_dynamic_field_form_field
+ADD CONSTRAINT fk_tb_dynamic_field_form_field_tb_dynamic_field_element
+FOREIGN KEY ( element_id ) REFERENCES tb_dynamic_field_element( id );
 GO

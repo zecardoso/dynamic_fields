@@ -6,8 +6,8 @@ BEGIN
 
     SELECT
          id AS 'Id'
+        ,code_identifier AS 'CodeIdentifier'
         ,description AS 'Description'
-        ,element_id AS 'ElementId'
         ,column_id AS 'ColumnId'
         ,name AS 'Name'
         ,caption AS 'Caption'

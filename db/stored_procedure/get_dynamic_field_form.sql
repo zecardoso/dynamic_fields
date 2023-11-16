@@ -6,6 +6,7 @@ BEGIN
 
     SELECT
          id AS 'Id'
+        ,code_identifier AS 'CodeIdentifier'
         ,description AS 'Description'
         ,enabled AS 'Enabled'
     FROM

@@ -3,7 +3,7 @@ CREATE TABLE tb_dynamic_field_condition_user
      field_id int NOT NULL
     ,user_type_id int NOT NULL
     ,condition_type_id int NOT NULL
-    ,value int NOT NULL
+    ,value int
     ,enabled bit NOT NULL
 )
 GO
