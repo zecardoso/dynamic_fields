@@ -5,6 +5,6 @@ export class DataBaseIntegration {
     }
 
     Execute(procedure, parameters) {
-        const fields = SqlServer.Execute(procedure, parameters);
+        const fields = SqlServer.Execute(procedure, parameters)
     }
 }

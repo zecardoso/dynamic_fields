@@ -3,7 +3,7 @@ import { DataBaseIntegration } from "../integration/database_integration.js"
 
 export class ConditionTypeRepository {
     constructor() {
-        this.integration = new DataBaseIntegration();
+        this.integration = new DataBaseIntegration()
     }
 
     Get(id) {
@@ -11,6 +11,6 @@ export class ConditionTypeRepository {
             { name: "id", value: id }
         ]
 
-        this.integration.Execute("get_dynamic_field_condition_type", parameters);
+        this.integration.Execute("get_dynamic_field_condition_type", parameters)
     }
 }

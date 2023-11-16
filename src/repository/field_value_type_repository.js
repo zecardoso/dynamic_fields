@@ -3,7 +3,7 @@ import { DataBaseIntegration } from "../integration/database_integration.js"
 
 export class FieldValueTypeRepository {
     constructor() {
-        this.integration = new DataBaseIntegration();
+        this.integration = new DataBaseIntegration()
     }
 
     Get(id) {
@@ -11,6 +11,6 @@ export class FieldValueTypeRepository {
             { name: "id", value: id }
         ]
 
-        this.integration.Execute("get_table", parameters);
+        this.integration.Execute("get_table", parameters)
     }
 }

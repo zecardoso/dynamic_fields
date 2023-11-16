@@ -3,7 +3,7 @@ import { DataBaseIntegration } from "../integration/database_integration.js"
 
 export class FormRepository {
     constructor() {
-        this.integration = new DataBaseIntegration();
+        this.integration = new DataBaseIntegration()
     }
 
     Get(id) {
@@ -11,6 +11,6 @@ export class FormRepository {
             { name: "id", value: id }
         ]
 
-        this.integration.Execute("get_dynamic_field_form", parameters);
+        this.integration.Execute("get_dynamic_field_form", parameters)
     }
 }

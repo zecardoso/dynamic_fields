@@ -16,7 +16,7 @@ export class SqlServer {
 
             parameters.forEach(parameter => {
                 request.input(parameter.name, parameter.value)
-            });
+            })
 
             let result = await request.execute(procedure)
 
