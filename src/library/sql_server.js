@@ -1,14 +1,23 @@
 import sql from "mssql"
 
-const connectionString = "Server=localhost,1433;Database=db_dynamic_fields;User Id=sa;Password=0#DynamicFields;trustServerCertificate=true"
-
 export class SqlServer {
+    #config
+
     constructor() {
+        this.#config = {
+            user: 'sa',
+            password: '0#DynamicFields',
+            server: 'localhost',
+            database: 'db_dynamic_fields',
+            options: {
+                trustServerCertificate: true
+            }
+        }
     }
 
-    static async Execute(procedure, parameters) {
+    async Execute(procedure, parameters) {
         try {
-            const pool = await new sql.ConnectionPool(connectionString)
+            const pool = await new sql.ConnectionPool(this.#config)
 
             await pool.connect()
 
