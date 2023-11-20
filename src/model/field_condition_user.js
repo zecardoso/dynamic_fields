@@ -5,4 +5,12 @@ export class FieldConditionUser {
         this.Value = Value
         this.Enabled = Enabled
     }
+
+    GetFromRow(row) {
+        if (row["Value"] !== undefined)
+            this.Value = row["Value"]
+
+        if (row["Enabled"] !== undefined)
+            this.Enabled = row["Enabled"]
+    }
 }

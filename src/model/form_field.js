@@ -8,4 +8,21 @@ export class FormField {
         this.RankOrder = RankOrder
         this.Enabled = Enabled
     }
+
+    GetFromRow(row) {
+        if (row["Name"] !== undefined)
+            this.Name = row["Name"]
+
+        if (row["Caption"] !== undefined)
+            this.Caption = row["Caption"]
+
+        if (row["Hidden"] !== undefined)
+            this.Hidden = row["Hidden"]
+
+        if (row["RankOrder"] !== undefined)
+            this.RankOrder = row["RankOrder"]
+
+        if (row["Enabled"] !== undefined)
+            this.Enabled = row["Enabled"]
+    }
 }
