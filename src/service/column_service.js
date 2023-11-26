@@ -1,4 +1,4 @@
-import { Column } from "../model/column.js"
+import { ColumnResponse } from "../model/column_response.js"
 import { ColumnRepository } from "../repository/column_repository.js"
 
 export class ColumnService {
@@ -11,6 +11,10 @@ export class ColumnService {
     async Get(id) {
         const column = await this.#repository.Get(id)
 
-        return column
+        const columnResponse = new ColumnResponse()
+
+        columnResponse.Set(column)
+
+        return columnResponse
     }
 }

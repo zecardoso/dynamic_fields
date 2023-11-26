@@ -1,4 +1,4 @@
-import { Element } from "../model/element.js"
+import { ElementResponse } from "../model/element_response.js"
 import { ElementRepository } from "../repository/element_repository.js"
 
 export class ElementService {
@@ -11,6 +11,10 @@ export class ElementService {
     async Get(id) {
         const element = await this.#repository.Get(id)
 
-        return element
+        const elementResponse = new ElementResponse()
+
+        elementResponse.Set(element)
+
+        return elementResponse
     }
 }

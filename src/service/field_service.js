@@ -1,4 +1,4 @@
-import { Field } from "../model/field.js"
+import { FieldResponse } from "../model/field_response.js"
 import { FieldRepository } from "../repository/field_repository.js"
 
 export class FieldService {
@@ -11,6 +11,10 @@ export class FieldService {
     async Get(id) {
         const field = await this.#repository.Get(id)
 
-        return field
+        const fieldResponse = new FieldResponse()
+
+        fieldResponse.Set(field)
+
+        return fieldResponse
     }
 }

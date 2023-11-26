@@ -1,4 +1,4 @@
-import { User } from "../model/user.js"
+import { UserResponse } from "../model/user_response.js"
 import { UserRepository } from "../repository/user_repository.js"
 
 export class UserService {
@@ -11,6 +11,10 @@ export class UserService {
     async Get(id) {
         const user = await this.#repository.Get(id)
 
-        return user
+        const userResponse = new UserResponse()
+
+        userResponse.Set(user)
+
+        return userResponse
     }
 }

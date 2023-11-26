@@ -1,4 +1,4 @@
-import { Form } from "../model/form.js"
+import { FormResponse } from "../model/form_response.js"
 import { FormRepository } from "../repository/form_repository.js"
 
 export class FormService {
@@ -11,6 +11,10 @@ export class FormService {
     async Get(id) {
         const form = await this.#repository.Get(id)
 
-        return form
+        const formResponse = new FormResponse()
+
+        formResponse.Set(form)
+
+        return formResponse
     }
 }

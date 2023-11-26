@@ -1,4 +1,4 @@
-import { UserType } from "../model/user_type.js"
+import { UserTypeResponse } from "../model/user_type_response.js"
 import { UserTypeRepository } from "../repository/user_type_repository.js"
 
 export class UserTypeService {
@@ -11,6 +11,10 @@ export class UserTypeService {
     async Get(id) {
         const userType = await this.#repository.Get(id)
 
-        return userType
+        const userTypeResponse = new UserTypeResponse()
+
+        userTypeResponse.Set(userType)
+
+        return userTypeResponse
     }
 }

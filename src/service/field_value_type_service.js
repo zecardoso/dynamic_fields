@@ -1,4 +1,4 @@
-import { FieldValueType } from "../model/field_value_type.js"
+import { FieldValueTypeResponse } from "../model/field_value_type_response.js"
 import { FieldValueTypeRepository } from "../repository/field_value_type_repository.js"
 
 export class FieldValueTypeService {
@@ -11,6 +11,10 @@ export class FieldValueTypeService {
     async Get(id) {
         const fieldValueType = await this.#repository.Get(id)
 
-        return fieldValueType
+        const fieldValueTypeResponse = new FieldValueTypeResponse()
+
+        fieldValueTypeResponse.Set(fieldValueType)
+
+        return fieldValueTypeResponse
     }
 }

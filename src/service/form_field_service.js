@@ -1,4 +1,4 @@
-import { FormField } from "../model/form_field.js"
+import { FormFieldResponse } from "../model/form_field_response.js"
 import { FormFieldRepository } from "../repository/form_field_repository.js"
 
 export class FormFieldService {
@@ -11,6 +11,10 @@ export class FormFieldService {
     async Get(id) {
         const formField = await this.#repository.Get(id)
 
-        return formField
+        const formFieldResponse = new FormFieldResponse()
+
+        formFieldResponse.Set(formField)
+
+        return formFieldResponse
     }
 }

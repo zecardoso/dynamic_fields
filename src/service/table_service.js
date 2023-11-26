@@ -1,4 +1,4 @@
-import { Table } from "../model/table.js"
+import { TableResponse } from "../model/table_response.js"
 import { TableRepository } from "../repository/table_repository.js"
 
 export class TableService {
@@ -11,6 +11,10 @@ export class TableService {
     async Get(id) {
         const table = await this.#repository.Get(id)
 
-        return table
+        const tableResponse = new TableResponse()
+
+        tableResponse.Set(table)
+
+        return tableResponse
     }
 }
