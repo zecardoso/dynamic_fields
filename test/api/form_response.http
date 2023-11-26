@@ -1,0 +1,227 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 3002
+ETag: W/"bba-U5i1xvhm3E3juUOl/QOPLuvdHhQ"
+Date: Sun, 26 Nov 2023 00:53:05 GMT
+Connection: close
+
+{
+  "CodeIdentifier": "User",
+  "Description": null,
+  "Fields": [
+    {
+      "Field": {
+        "CodeIdentifier": "CodeIdentifier",
+        "Description": null,
+        "Column": {
+          "CodeIdentifier": "CodeIdentifier",
+          "Description": null,
+          "Table": {
+            "CodeIdentifier": "User",
+            "Description": null,
+            "Name": "tb_user",
+            "Enabled": true
+          },
+          "Name": "code_identifier",
+          "Enabled": true
+        },
+        "Name": "Email",
+        "Caption": "Email",
+        "Hidden": false,
+        "Conditions": [
+          {
+            "UserType": {
+              "CodeIdentifier": "Administrator",
+              "Description": null,
+              "Enabled": true
+            },
+            "ConditionType": {
+              "CodeIdentifier": "Readonly",
+              "Description": null,
+              "Enabled": true
+            },
+            "Value": null,
+            "Enabled": true
+          }
+        ],
+        "Enabled": true
+      },
+      "Element": {
+        "CodeIdentifier": "Text",
+        "Description": null,
+        "FieldValueType": {
+          "CodeIdentifier": "String",
+          "Description": null,
+          "Enabled": true
+        },
+        "Enabled": true
+      },
+      "Name": null,
+      "Caption": null,
+      "Hidden": null,
+      "RankOrder": null,
+      "Enabled": true
+    },
+    {
+      "Field": {
+        "CodeIdentifier": "UserTypeId",
+        "Description": null,
+        "Column": {
+          "CodeIdentifier": "UserTypeId",
+          "Description": null,
+          "Table": {
+            "CodeIdentifier": "User",
+            "Description": null,
+            "Name": "tb_user",
+            "Enabled": true
+          },
+          "Name": "user_type_id",
+          "Enabled": true
+        },
+        "Name": "UserTypeId",
+        "Caption": "UserTypeId",
+        "Hidden": false,
+        "Conditions": [
+          {
+            "UserType": {
+              "CodeIdentifier": "Administrator",
+              "Description": null,
+              "Enabled": true
+            },
+            "ConditionType": {
+              "CodeIdentifier": "Required",
+              "Description": null,
+              "Enabled": true
+            },
+            "Value": null,
+            "Enabled": true
+          }
+        ],
+        "Enabled": true
+      },
+      "Element": {
+        "CodeIdentifier": "Number",
+        "Description": null,
+        "FieldValueType": {
+          "CodeIdentifier": "Integer",
+          "Description": null,
+          "Enabled": true
+        },
+        "Enabled": true
+      },
+      "Name": null,
+      "Caption": null,
+      "Hidden": null,
+      "RankOrder": null,
+      "Enabled": true
+    },
+    {
+      "Field": {
+        "CodeIdentifier": "Name",
+        "Description": null,
+        "Column": {
+          "CodeIdentifier": "Name",
+          "Description": null,
+          "Table": {
+            "CodeIdentifier": "User",
+            "Description": null,
+            "Name": "tb_user",
+            "Enabled": true
+          },
+          "Name": "name",
+          "Enabled": true
+        },
+        "Name": "Name",
+        "Caption": "Name",
+        "Hidden": false,
+        "Conditions": [
+          {
+            "UserType": {
+              "CodeIdentifier": "Administrator",
+              "Description": null,
+              "Enabled": true
+            },
+            "ConditionType": {
+              "CodeIdentifier": "Readonly",
+              "Description": null,
+              "Enabled": true
+            },
+            "Value": null,
+            "Enabled": true
+          }
+        ],
+        "Enabled": true
+      },
+      "Element": {
+        "CodeIdentifier": "Text",
+        "Description": null,
+        "FieldValueType": {
+          "CodeIdentifier": "String",
+          "Description": null,
+          "Enabled": true
+        },
+        "Enabled": true
+      },
+      "Name": null,
+      "Caption": null,
+      "Hidden": null,
+      "RankOrder": null,
+      "Enabled": true
+    },
+    {
+      "Field": {
+        "CodeIdentifier": "Enabled",
+        "Description": null,
+        "Column": {
+          "CodeIdentifier": "Enabled",
+          "Description": null,
+          "Table": {
+            "CodeIdentifier": "User",
+            "Description": null,
+            "Name": "tb_user",
+            "Enabled": true
+          },
+          "Name": "enabled",
+          "Enabled": true
+        },
+        "Name": "Enabled",
+        "Caption": "Enabled",
+        "Hidden": false,
+        "Conditions": [
+          {
+            "UserType": {
+              "CodeIdentifier": "Administrator",
+              "Description": null,
+              "Enabled": true
+            },
+            "ConditionType": {
+              "CodeIdentifier": "Required",
+              "Description": null,
+              "Enabled": true
+            },
+            "Value": null,
+            "Enabled": true
+          }
+        ],
+        "Enabled": true
+      },
+      "Element": {
+        "CodeIdentifier": "Checkbox",
+        "Description": null,
+        "FieldValueType": {
+          "CodeIdentifier": "Boolean",
+          "Description": null,
+          "Enabled": true
+        },
+        "Enabled": true
+      },
+      "Name": null,
+      "Caption": null,
+      "Hidden": null,
+      "RankOrder": null,
+      "Enabled": true
+    }
+  ],
+  "Enabled": true
+}
