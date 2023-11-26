@@ -8,11 +8,27 @@ servers:
 - url: http://localhost:3000
 
 paths:
-  /example:
+  /api/form/{id}:
     get:
-      responses:
-        '200':
-          description: OK
+        summary: Returns a form by ID.
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: The ID of the form to return.
+            schema:
+              type: integer
+              format: int64
+              minimum: 1
+        responses:
+          '200':
+            description: A form object.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Form'
+          default:
+            description: Unexpected error
 
 components:
   schemas:
