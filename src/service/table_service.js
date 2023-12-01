@@ -8,8 +8,8 @@ export class TableService {
         this.#repository = new TableRepository()
     }
 
-    async Get(id) {
-        const table = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const table = await this.#repository.Get(codeIdentifier)
 
         const tableResponse = new TableResponse()
 

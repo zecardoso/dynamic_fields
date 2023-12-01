@@ -11,9 +11,9 @@ export class UserRepository {
         this.#userTypeRepository = new UserTypeRepository()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_user", parameters)
@@ -34,10 +34,10 @@ export class UserRepository {
     }
 
     async #SetUserUserType(user, row) {
-        if (row["UserTypeId"] !== undefined) {
-            const userTypeId = row["UserTypeId"]
+        if (row["UserTypeCodeIdentifier"] !== undefined) {
+            const userTypeCodeIdentifier = row["UserTypeCodeIdentifier"]
 
-            user.UserType = await this.#userTypeRepository.Get(userTypeId)
+            user.UserType = await this.#userTypeRepository.Get(userTypeCodeIdentifier)
         }
     }
 }

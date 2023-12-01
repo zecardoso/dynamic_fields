@@ -14,10 +14,10 @@ export class FieldConditionUserRepository {
         this.#conditionTypeRepository = new ConditionTypeRepository()
     }
 
-    async Get(fieldId, userTypeId) {
+    async Get(fieldCodeIdentifier, userTypeCodeIdentifier) {
         const parameters = [
-            { name: "field_id", value: fieldId },
-            { name: "user_type_id", value: userTypeId }
+            { name: "field_code_identifier", value: fieldCodeIdentifier },
+            { name: "user_type_code_identifier", value: userTypeCodeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field_condition_user", parameters)
@@ -46,18 +46,18 @@ export class FieldConditionUserRepository {
     }
 
     async #SetFieldConditionUserUserType(fieldConditionUser, row) {
-        if (row["UserTypeId"] !== undefined) {
-            const userTypeId = row["UserTypeId"]
+        if (row["UserTypeCodeIdentifier"] !== undefined) {
+            const userTypeCodeIdentifier = row["UserTypeCodeIdentifier"]
 
-            fieldConditionUser.UserType = await this.#userTypeRepository.Get(userTypeId)
+            fieldConditionUser.UserType = await this.#userTypeRepository.Get(userTypeCodeIdentifier)
         }
     }
 
     async #SetFieldConditionUserConditionType(fieldConditionUser, row) {
-        if (row["ConditionTypeId"] !== undefined) {
-            const conditionTypeId = row["ConditionTypeId"]
+        if (row["ConditionTypeCodeIdentifier"] !== undefined) {
+            const conditionTypeCodeIdentifier = row["ConditionTypeCodeIdentifier"]
 
-            fieldConditionUser.ConditionType = await this.#conditionTypeRepository.Get(conditionTypeId)
+            fieldConditionUser.ConditionType = await this.#conditionTypeRepository.Get(conditionTypeCodeIdentifier)
         }
     }
 }

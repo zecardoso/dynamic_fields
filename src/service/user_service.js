@@ -8,8 +8,8 @@ export class UserService {
         this.#repository = new UserRepository()
     }
 
-    async Get(id) {
-        const user = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const user = await this.#repository.Get(codeIdentifier)
 
         const userResponse = new UserResponse()
 

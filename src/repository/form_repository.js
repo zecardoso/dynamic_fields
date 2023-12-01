@@ -11,9 +11,9 @@ export class FormRepository {
         this.#formFieldRepository = new FormFieldRepository()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier, userTypeCodeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field_form", parameters)
@@ -28,12 +28,12 @@ export class FormRepository {
 
         form.GetFromRow(row)
 
-        await this.#SetFormFields(form)
+        await this.#SetFormFields(form, userTypeCodeIdentifier)
 
         return form
     }
 
-    async #SetFormFields(form) {
-        form.Fields = await this.#formFieldRepository.Get(form.Id)
+    async #SetFormFields(form, userTypeCodeIdentifier) {
+        form.Fields = await this.#formFieldRepository.Get(form.CodeIdentifier, userTypeCodeIdentifier)
     }
 }

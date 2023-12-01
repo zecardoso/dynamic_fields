@@ -14,9 +14,9 @@ export class FormFieldRepository {
         this.#elementRepository = new ElementRepository()
     }
 
-    async Get(formId) {
+    async Get(formCodeIdentifier, userTypeCodeIdentifier) {
         const parameters = [
-            { name: "form_id", value: formId }
+            { name: "form_code_identifier", value: formCodeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field_form_field", parameters)
@@ -34,7 +34,7 @@ export class FormFieldRepository {
 
             formField.GetFromRow(row)
 
-            await this.#SetFormFieldField(formField, row)
+            await this.#SetFormFieldField(formField, userTypeCodeIdentifier, row)
 
             await this.#SetFormFieldElement(formField, row)
 
@@ -44,19 +44,19 @@ export class FormFieldRepository {
         return formFields
     }
 
-    async #SetFormFieldField(formField, row) {
-        if (row["FieldId"] !== undefined) {
-            const fieldId = row["FieldId"]
+    async #SetFormFieldField(formField, userTypeCodeIdentifier, row) {
+        if (row["FieldCodeIdentifier"] !== undefined) {
+            const fieldCodeIdentifier = row["FieldCodeIdentifier"]
 
-            formField.Field = await this.#fieldRepository.Get(fieldId)
+            formField.Field = await this.#fieldRepository.Get(fieldCodeIdentifier, userTypeCodeIdentifier)
         }
     }
 
     async #SetFormFieldElement(formField, row) {
-        if (row["ElementId"] !== undefined) {
-            const elementId = row["ElementId"]
+        if (row["ElementCodeIdentifier"] !== undefined) {
+            const elementCodeIdentifier = row["ElementCodeIdentifier"]
 
-            formField.Element = await this.#elementRepository.Get(elementId)
+            formField.Element = await this.#elementRepository.Get(elementCodeIdentifier)
         }
     }
 }

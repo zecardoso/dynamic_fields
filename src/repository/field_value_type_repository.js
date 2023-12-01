@@ -8,9 +8,9 @@ export class FieldValueTypeRepository {
         this.#integration = new DataBaseIntegration()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field_value_type", parameters)

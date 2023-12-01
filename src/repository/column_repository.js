@@ -11,9 +11,9 @@ export class ColumnRepository {
         this.#tableRepository = new TableRepository()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_column", parameters)
@@ -34,10 +34,10 @@ export class ColumnRepository {
     }
 
     async #SetColumnTable(column, row) {
-        if (row["TableId"] !== undefined) {
-            const tableId = row["TableId"]
+        if (row["TableCodeIdentifier"] !== undefined) {
+            const tableCodeIdentifier = row["TableCodeIdentifier"]
 
-            column.Table = await this.#tableRepository.Get(tableId)
+            column.Table = await this.#tableRepository.Get(tableCodeIdentifier)
         }
     }
 }

@@ -1,18 +1,17 @@
 CREATE OR ALTER PROCEDURE get_table
-    @id int
+    @code_identifier nvarchar(50)
 AS
 BEGIN
     SET NOCOUNT ON
 
     SELECT
-         id AS 'Id'
-        ,code_identifier AS 'CodeIdentifier'
+         code_identifier AS 'CodeIdentifier'
         ,description AS 'Description'
         ,name AS 'Name'
         ,enabled AS 'Enabled'
     FROM
         tb_table
     WHERE
-        id = @id
+        code_identifier = @code_identifier
 END
 GO

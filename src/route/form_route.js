@@ -13,7 +13,7 @@ export class FormRoute {
 
     #RouteGetForm() {
         const method = "get"
-        const url = "/api/form/:id"
+        const url = "/api/form/:codeIdentifier"
 
         this.#httpServer.Register(method, url, this.#formController.GetForm)
     }

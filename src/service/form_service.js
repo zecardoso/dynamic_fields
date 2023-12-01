@@ -8,8 +8,8 @@ export class FormService {
         this.#repository = new FormRepository()
     }
 
-    async Get(id) {
-        const form = await this.#repository.Get(id)
+    async Get(codeIdentifier, userTypeCodeIdentifier) {
+        const form = await this.#repository.Get(codeIdentifier, userTypeCodeIdentifier)
 
         const formResponse = new FormResponse()
 

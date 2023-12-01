@@ -8,8 +8,8 @@ export class ColumnService {
         this.#repository = new ColumnRepository()
     }
 
-    async Get(id) {
-        const column = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const column = await this.#repository.Get(codeIdentifier)
 
         const columnResponse = new ColumnResponse()
 

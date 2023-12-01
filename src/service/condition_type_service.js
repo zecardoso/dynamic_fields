@@ -8,8 +8,8 @@ export class ConditionTypeService {
         this.#repository = new ConditionTypeRepository()
     }
 
-    async Get(id) {
-        const conditionType = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const conditionType = await this.#repository.Get(codeIdentifier)
 
         const conditionTypeResponse = new ConditionTypeResponse()
 

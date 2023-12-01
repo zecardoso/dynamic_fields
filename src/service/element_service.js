@@ -8,8 +8,8 @@ export class ElementService {
         this.#repository = new ElementRepository()
     }
 
-    async Get(id) {
-        const element = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const element = await this.#repository.Get(codeIdentifier)
 
         const elementResponse = new ElementResponse()
 

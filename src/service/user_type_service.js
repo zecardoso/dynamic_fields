@@ -8,8 +8,8 @@ export class UserTypeService {
         this.#repository = new UserTypeRepository()
     }
 
-    async Get(id) {
-        const userType = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const userType = await this.#repository.Get(codeIdentifier)
 
         const userTypeResponse = new UserTypeResponse()
 

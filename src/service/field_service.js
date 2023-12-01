@@ -8,8 +8,8 @@ export class FieldService {
         this.#repository = new FieldRepository()
     }
 
-    async Get(id) {
-        const field = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const field = await this.#repository.Get(codeIdentifier)
 
         const fieldResponse = new FieldResponse()
 

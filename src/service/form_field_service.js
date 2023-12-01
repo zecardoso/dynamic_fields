@@ -8,8 +8,8 @@ export class FormFieldService {
         this.#repository = new FormFieldRepository()
     }
 
-    async Get(id) {
-        const formField = await this.#repository.Get(id)
+    async Get(formCodeIdentifier) {
+        const formField = await this.#repository.Get(formCodeIdentifier)
 
         const formFieldResponse = new FormFieldResponse()
 

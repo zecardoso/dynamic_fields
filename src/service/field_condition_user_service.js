@@ -8,8 +8,8 @@ export class FieldConditionUserService {
         this.#repository = new FieldConditionUserRepository()
     }
 
-    async Get(id) {
-        const fieldConditionUser = await this.#repository.Get(id)
+    async Get(fieldCodeIdentifier, userTypeCodeIdentifier) {
+        const fieldConditionUser = await this.#repository.Get(fieldCodeIdentifier, userTypeCodeIdentifier)
 
         const fieldConditionUserResponse = new FieldConditionUserResponse()
 

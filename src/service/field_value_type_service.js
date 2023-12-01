@@ -8,8 +8,8 @@ export class FieldValueTypeService {
         this.#repository = new FieldValueTypeRepository()
     }
 
-    async Get(id) {
-        const fieldValueType = await this.#repository.Get(id)
+    async Get(codeIdentifier) {
+        const fieldValueType = await this.#repository.Get(codeIdentifier)
 
         const fieldValueTypeResponse = new FieldValueTypeResponse()
 

@@ -3,8 +3,6 @@ import { DataBaseIntegration } from "../integration/database_integration.js"
 import { ColumnRepository } from "./column_repository.js"
 import { FieldConditionUserRepository } from "./field_condition_user_repository.js"
 
-const UserTypeId = 1
-
 export class FieldRepository {
     #integration
     #columnRepository
@@ -16,9 +14,9 @@ export class FieldRepository {
         this.#fieldConditionUserRepository = new FieldConditionUserRepository()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier, userTypeCodeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field", parameters)
@@ -35,20 +33,20 @@ export class FieldRepository {
 
         await this.#SetFieldColumn(field, row)
 
-        await this.#SetFieldConditions(field)
+        await this.#SetFieldConditions(field, userTypeCodeIdentifier)
 
         return field
     }
 
     async #SetFieldColumn(field, row) {
-        if (row["ColumnId"] !== undefined) {
-            const columnId = row["ColumnId"]
+        if (row["ColumnCodeIdentifier"] !== undefined) {
+            const columnCodeIdentifier = row["ColumnCodeIdentifier"]
 
-            field.Column = await this.#columnRepository.Get(columnId)
+            field.Column = await this.#columnRepository.Get(columnCodeIdentifier)
         }
     }
 
-    async #SetFieldConditions(field) {
-        field.Conditions = await this.#fieldConditionUserRepository.Get(field.Id, UserTypeId)
+    async #SetFieldConditions(field, userTypeCodeIdentifier) {
+        field.Conditions = await this.#fieldConditionUserRepository.Get(field.CodeIdentifier, userTypeCodeIdentifier)
     }
 }

@@ -11,9 +11,9 @@ export class ElementRepository {
         this.#fieldValueTypeRepository = new FieldValueTypeRepository()
     }
 
-    async Get(id) {
+    async Get(codeIdentifier) {
         const parameters = [
-            { name: "id", value: id }
+            { name: "code_identifier", value: codeIdentifier }
         ]
 
         const recordSets = await this.#integration.Execute("get_dynamic_field_element", parameters)
@@ -34,10 +34,10 @@ export class ElementRepository {
     }
 
     async #SetElementFieldValueType(element, row) {
-        if (row["FieldValueTypeId"] !== undefined) {
-            const fieldValueTypeId = row["FieldValueTypeId"]
+        if (row["FieldValueTypeCodeIdentifier"] !== undefined) {
+            const fieldValueTypeCodeIdentifier = row["FieldValueTypeCodeIdentifier"]
 
-            element.FieldValueType = await this.#fieldValueTypeRepository.Get(fieldValueTypeId)
+            element.FieldValueType = await this.#fieldValueTypeRepository.Get(fieldValueTypeCodeIdentifier)
         }
     }
 }
