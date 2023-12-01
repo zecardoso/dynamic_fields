@@ -10,7 +10,7 @@ export class Express {
 
     Register(method, url, callback) {
         this.#app[method](url, async function(req, res) {
-            const output = await callback(req.params, req.body)
+            const output = await callback(req.params, req.headers, req.body)
 
             res.json(output)
         })

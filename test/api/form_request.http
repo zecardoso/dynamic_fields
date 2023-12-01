@@ -1,1 +1,7 @@
-GET http://localhost:3000/api/form/1
+@codeIdentifier = User
+
+# Administrator | Standard | Guest
+@UserTypeCodeIdentifier = Guest
+
+GET http://localhost:3000/api/form/{{codeIdentifier}}
+user-type-code-identifier: {{UserTypeCodeIdentifier}}
