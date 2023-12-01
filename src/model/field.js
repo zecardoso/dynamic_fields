@@ -1,6 +1,5 @@
 export class Field {
-    constructor(Id, CodeIdentifier, Description, Column, Name, Caption, Hidden, Conditions, Enabled) {
-        this.Id = Id
+    constructor(CodeIdentifier, Description, Column, Name, Caption, Hidden, Conditions, Enabled) {
         this.CodeIdentifier = CodeIdentifier
         this.Description = Description
         this.Column = Column
@@ -12,9 +11,6 @@ export class Field {
     }
 
     GetFromRow(row) {
-        if (row["Id"] !== undefined)
-            this.Id = row["Id"]
-
         if (row["CodeIdentifier"] !== undefined)
             this.CodeIdentifier = row["CodeIdentifier"]
 

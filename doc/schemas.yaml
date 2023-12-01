@@ -1,4 +1,5 @@
 openapi: 3.0.0
+
 info:
   title: Dynamic fields
   description: Create a form page with dynamic fields from database
@@ -36,10 +37,6 @@ components:
       type: object
       description: Informação da tabela dinâmica.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id da tabela
         CodeIdentifier:
           type: string
           description: Código de identificação da tabela
@@ -53,7 +50,6 @@ components:
           type: boolean
           description: Tabela habilitada
       required:
-      - Id
       - CodeIdentifier
       - Name
       - Enabled
@@ -61,10 +57,6 @@ components:
       type: object
       description: Informação da coluna da tabela dinâmica.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id da coluna
         CodeIdentifier:
           type: string
           description: Código de identificação da coluna
@@ -80,7 +72,6 @@ components:
           type: boolean
           description: Coluna habilitada
       required:
-      - Id
       - CodeIdentifier
       - Table
       - Name
@@ -89,10 +80,6 @@ components:
       type: object
       description: Tipo de valor para campo.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do tipo de valor
         CodeIdentifier:
           type: string
           description: Código de identificação do tipo de valor
@@ -103,17 +90,12 @@ components:
           type: boolean
           description: Tipo de valor habilitado
       required:
-      - Id
       - CodeIdentifier
       - Enabled
     Element:
       type: object
       description: Elemento que será renderizado no formulário.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do elemento
         CodeIdentifier:
           type: string
           description: Código de identificação do elemento
@@ -126,7 +108,6 @@ components:
           type: boolean
           description: Elemento habilitado
       required:
-      - Id
       - CodeIdentifier
       - FieldValueType
       - Enabled
@@ -134,10 +115,6 @@ components:
       type: object
       description: Tipo de condição antes de salvar. Tamanho min e max.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id da condição
         CodeIdentifier:
           type: string
           description: Código de identificação da condição
@@ -148,17 +125,12 @@ components:
           type: boolean
           description: Condição habilitada
       required:
-      - Id
       - CodeIdentifier
       - Enabled
     UserType:
       type: object
       description: Tipo de usuário.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do tipo de usuário
         CodeIdentifier:
           type: string
           description: Código de identificação do tipo de usuário
@@ -169,17 +141,12 @@ components:
           type: boolean
           description: Tipo de usuário habilitado
       required:
-      - Id
       - CodeIdentifier
       - Enabled
     User:
       type: object
       description: Usuário.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do usuário
         CodeIdentifier:
           type: string
           description: Código de identificação de usuário
@@ -192,7 +159,6 @@ components:
           type: boolean
           description: Usuário habilitado
       required:
-      - Id
       - CodeIdentifier
       - UserType
       - Name
@@ -201,10 +167,6 @@ components:
       type: object
       description: Informações para serem apresentadas no campo do formulário.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do campo
         Description:
           type: string
           description: Descrição do campo
@@ -227,7 +189,6 @@ components:
           type: boolean
           description: Campo habilitado
       required:
-      - Id
       - Column
       - Name
       - Caption
@@ -257,10 +218,6 @@ components:
       type: object
       description: Informações do formulário.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: Id do formulário
         Description:
           type: string
           description: Descrição do formulário
@@ -272,7 +229,6 @@ components:
           type: boolean
           description: Formulário habilitado
       required:
-      - Id
       - Fields
       - Enabled
     FormField:

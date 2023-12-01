@@ -1,6 +1,5 @@
 export class Element {
-    constructor(Id, CodeIdentifier, Description, FieldValueType, Enabled) {
-        this.Id = Id
+    constructor(CodeIdentifier, Description, FieldValueType, Enabled) {
         this.CodeIdentifier = CodeIdentifier
         this.Description = Description
         this.FieldValueType = FieldValueType
@@ -8,9 +7,6 @@ export class Element {
     }
 
     GetFromRow(row) {
-        if (row["Id"] !== undefined)
-            this.Id = row["Id"]
-
         if (row["CodeIdentifier"] !== undefined)
             this.CodeIdentifier = row["CodeIdentifier"]
 

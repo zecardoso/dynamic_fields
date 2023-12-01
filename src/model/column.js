@@ -1,6 +1,5 @@
 export class Column {
-    constructor(Id, CodeIdentifier, Description, Table, Name, Enabled) {
-        this.Id = Id
+    constructor(CodeIdentifier, Description, Table, Name, Enabled) {
         this.CodeIdentifier = CodeIdentifier
         this.Description = Description
         this.Table = Table
@@ -9,9 +8,6 @@ export class Column {
     }
 
     GetFromRow(row) {
-        if (row["Id"] !== undefined)
-            this.Id = row["Id"]
-
         if (row["CodeIdentifier"] !== undefined)
             this.CodeIdentifier = row["CodeIdentifier"]
 
